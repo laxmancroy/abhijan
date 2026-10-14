@@ -1,7 +1,7 @@
 const Footer = () => {
     return(
-        <footer>
-            This is footer
+        <footer className="bg-white text-black py-4 text-center border-t border-gray-200">
+            2026 @ Abhijan. All rights reserved.
         </footer>
     );
 }
