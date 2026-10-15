@@ -32,7 +32,7 @@ export default function LoginPage() {
           router.refresh();
         },
         onError: (ctx) => {
-          setError(ctx.error.message || "ভুল ইমেইল অথবা পাসওয়ার্ড!");
+          setError(ctx.error.message || "Wrong email or password!");
           setLoading(false);
         },
       }
@@ -40,12 +40,12 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 p-4">
+    <div className="flex min-h-screen items-center justify-center bg-gray-50 text-gray-600 p-4">
       <form
         onSubmit={handleLogin}
-        className="w-full max-w-md space-y-4 rounded-xl bg-white p-6 shadow-md border"
+        className="w-full max-w-md space-y-4 rounded-xl bg-white p-6 shadow-md border border-gray-200"
       >
-        <h1 className="text-2xl font-bold text-center">লগইন করুন (Login)</h1>
+        <h1 className="text-2xl font-bold text-center">Login</h1>
 
         {error && (
           <div className="rounded bg-red-100 p-3 text-sm text-red-600">
@@ -60,7 +60,7 @@ export default function LoginPage() {
             placeholder="example@mail.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded border p-2"
+            className="w-full rounded border border-gray-200 p-2"
             required
           />
         </div>
@@ -69,10 +69,10 @@ export default function LoginPage() {
           <label className="block text-sm font-medium mb-1">Password</label>
           <input
             type="password"
-            placeholder="আপনার পাসওয়ার্ড দিন"
+            placeholder="********"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded border p-2"
+            className="w-full rounded border border-gray-200 p-2 focus:border-gray-400"
             required
           />
         </div>
@@ -80,15 +80,15 @@ export default function LoginPage() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full rounded bg-green-600 py-2 font-semibold text-white hover:bg-green-700 disabled:opacity-50"
+          className="w-full rounded bg-blue-600 py-2 font-semibold text-white hover:bg-blue-700 disabled:opacity-50"
         >
-          {loading ? "লগইন হচ্ছে..." : "Login"}
+          {loading ? "Login process..." : "Login"}
         </button>
 
         <p className="text-center text-sm text-gray-600">
-          কোনো অ্যাকাউন্ট নেই?{" "}
+          Don't have an account?{" "}
           <Link href="/register" className="text-blue-600 font-medium underline">
-            Register করুন
+            Register
           </Link>
         </p>
       </form>

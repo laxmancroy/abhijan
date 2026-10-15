@@ -46,12 +46,12 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 p-4">
+    <div className="flex min-h-screen items-center justify-center bg-gray-50 text-gray-600 p-4">
       <form
         onSubmit={handleRegister}
-        className="w-full max-w-md space-y-4 rounded-xl bg-white p-6 shadow-md border"
+        className="w-full max-w-md space-y-4 rounded-xl bg-white p-6 shadow-md border border-gray-200"
       >
-        <h1 className="text-2xl font-bold text-center">নতুন অ্যাকাউন্ট খুলুন (Register)</h1>
+        <h1 className="text-2xl font-bold text-center">Register</h1>
 
         {error && (
           <div className="rounded bg-red-100 p-3 text-sm text-red-600">
@@ -63,10 +63,10 @@ export default function RegisterPage() {
           <label className="block text-sm font-medium mb-1">Full Name</label>
           <input
             type="text"
-            placeholder="আপনার নাম লিখুন"
+            placeholder="John Doe"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full rounded border p-2"
+            className="w-full rounded border border-gray-200 p-2"
             required
           />
         </div>
@@ -78,7 +78,7 @@ export default function RegisterPage() {
             placeholder="example@mail.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded border p-2"
+            className="w-full rounded border border-gray-200 p-2"
             required
           />
         </div>
@@ -87,10 +87,10 @@ export default function RegisterPage() {
           <label className="block text-sm font-medium mb-1">Password</label>
           <input
             type="password"
-            placeholder="কমপক্ষে ৮ অক্ষরের পাসওয়ার্ড"
+            placeholder="********"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded border p-2"
+            className="w-full rounded border border-gray-200 p-2"
             minLength={8}
             required
           />
@@ -99,15 +99,15 @@ export default function RegisterPage() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full rounded bg-blue-600 py-2 font-semibold text-white hover:bg-blue-700 disabled:opacity-50"
+          className="w-full rounded bg-blue-600 py-2 font-semibold hover:cursor-pointer text-white hover:bg-blue-700 disabled:opacity-50"
         >
           {loading ? "অ্যাকাউন্ট তৈরি হচ্ছে..." : "Sign Up"}
         </button>
 
         <p className="text-center text-sm text-gray-600">
-          আগে থেকেই অ্যাকাউন্ট আছে?{" "}
+          Already have an account?{" "}
           <Link href="/login" className="text-blue-600 font-medium underline">
-            Login করুন
+            Login
           </Link>
         </p>
       </form>
