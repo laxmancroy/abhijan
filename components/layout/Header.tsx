@@ -16,8 +16,8 @@ const navMenu = [
 const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white text-black px-4 py-2 flex justify-between md:justify-around items-center">
-            <div className="text-xl">Abhijan</div>
+        <header className="sticky top-0 z-50 h-14 w-full border-b border-border bg-popup text-foreground px-4 py-2 flex justify-between md:justify-around items-center">
+            <a href="/" className="block text-xl">Abhijan</a>
 
             <div className="flex">
             {/* Desktop Navigation Menu Bar */}
@@ -37,7 +37,10 @@ const Header = () => {
                 </Link>
             </button>
             {/* Responsive Navigation Button */}
-            <button className="md:hidden ml-8 hover:text-blue-700 hover:cursor-pointer" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            <button
+                className="md:hidden ml-8 hover:text-blue-700 hover:cursor-pointer"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
                 {isMobileMenuOpen ? (
                     <MdOutlineClose size={30} />
                 ) : (
@@ -47,7 +50,7 @@ const Header = () => {
             {/* Mobile Navigation Menu Bar */}
             {
                 isMobileMenuOpen &&
-                <nav className="md:hidden bg-white absolute top-16 right-0 flex flex-col">
+                <nav className="fixed right-0 top-14 bottom-0 z-40 flex w-1/2 flex-col overflow-y-auto border-l border-gray-200 bg-white shadow-lg md:hidden">
                 {
                     navMenu.map((item) => (
                         <Link key={item.href} href={item.href} className="px-4 py-2 hover:text-blue-700 rounded">
