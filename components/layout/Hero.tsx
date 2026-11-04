@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from "react";
+import Image from "next/image";
 import { GrPrevious, GrNext } from "react-icons/gr";
 
 const banners = [
@@ -25,7 +26,14 @@ const Hero = () => {
     return (
         <section className="relative w-full overflow-hidden">
             <div className="w-full">
-                <img src={banners[current]} alt="Hero Banner" className="w-full h-auto object-cover block" />
+                <Image
+                    src={banners[current]}
+                    alt="Hero Banner"
+                    width={1920}
+                    height={600}
+                    priority={current === 0}
+                    className="w-full h-auto object-cover block"
+                />
             </div>
 
             {/* Left and right overlay button */}

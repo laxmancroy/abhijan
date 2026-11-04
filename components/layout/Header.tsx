@@ -17,7 +17,7 @@ const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     return (
         <header className="sticky top-0 z-50 h-14 w-full border-b border-border bg-popup text-foreground px-4 py-2 flex justify-between md:justify-around items-center">
-            <a href="/" className="block text-xl">Abhijan</a>
+            <Link href="/" className="block text-xl">Abhijan</Link>
 
             <div className="flex">
             {/* Desktop Navigation Menu Bar */}
