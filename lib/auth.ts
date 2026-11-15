@@ -1,12 +1,16 @@
-// lib/auth.ts
+import { drizzleAdapter } from "@better-auth/drizzle-adapter";
 import { betterAuth } from "better-auth";
-import { Pool } from "pg";
+import {nextCookies } from "better-auth/next-js";
+import { db } from "@/db/db";
+import * as schema from "@/db/schema";
 
 export const auth = betterAuth({
-  database: new Pool({
-    connectionString: process.env.DATABASE_URL,
+  database: drizzleAdapter(db, {
+    provider: "pg",
+    schema,
   }),
   emailAndPassword: {
-    enabled: true, // এটি অটোমেটিক লগইন ও রেজিস্ট্রেশন হ্যান্ডেল করবে (Handles login & signup automatically)
+    enabled: true,
   },
+  plugins: [nextCookies()],
 });
