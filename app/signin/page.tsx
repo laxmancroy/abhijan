@@ -34,7 +34,7 @@ export default function LoginPage() {
           setError(ctx.error.message || "Wrong email or password!");
           setLoading(false);
         },
-      }
+      },
     );
   };
 
@@ -86,7 +86,7 @@ export default function LoginPage() {
 
         <p className="text-center text-sm text-gray-600">
           Don&apos;t have an account?{" "}
-          <Link href="/register" className="text-blue-600 font-medium underline">
+          <Link href="/signup" className="text-blue-600 font-medium underline">
             Register
           </Link>
         </p>
