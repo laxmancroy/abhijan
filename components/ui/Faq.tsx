@@ -1,3 +1,7 @@
+'use client';
+
+import { useState } from "react";
+
 import { IoIosArrowUp } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 
@@ -21,16 +25,20 @@ const questions = [
 ];
 
 const Faq = () => {
+    const [openQuestion, setOpenQuestion] = useState<number | null>(null);
+    
     return (
         <div className="b">
             <div className="container mx-auto px-4 py-8 md:p-16">
                 <h3 className="text-center text-3xl font-bold">Frequently Asked Questions</h3>
                 <div>
                     {
-                        questions.map((q) => (
+                        questions.map((q, index) => (
                             <div key={q.question} className="border-b border-border py-4 hover:cursor-pointer">
-                                <h4 className="flex items-center justify-between">{ q.question } <IoIosArrowDown /></h4>
-                                <p className="pt-3 text-muted-foreground text-sm hidden">{ q.answer }</p>
+                                <h4 className="flex items-center justify-between" onClick={() => setOpenQuestion(openQuestion === index ? null : index)}>
+                                    { q.question } {openQuestion === index ? <IoIosArrowUp /> : <IoIosArrowDown /> } 
+                                </h4>
+                                <p className={`${openQuestion === index ? "block" : "hidden"} pt-3 text-muted-foreground text-sm`}>{ q.answer }</p>
                             </div>
                         ))
                     }

@@ -27,7 +27,7 @@ const Hero = () => {
     return (
         <div className="container mx-auto flex flex-col sm:flex-row items-center justify-around gap-8 px-4 py-8 md:px-16 md:py-16">
             <div className="flex flex-col gap-4">
-                    <h2 className="text-4xl">Bangladesh's #1 platform for Job, DUET, Academic and General preperation</h2>
+                    <h2 className="text-4xl font-medium">Bangladesh's #1 platform for Job, DUET, Academic and General preperation</h2>
                     <p>Abhijan is one of Bangladesh's leading online preparation platforms — an academy, and website with 4K+ Users — covering Job, Duet, Academic and General preparation.</p>
 
                     {/* Category Selection */}
