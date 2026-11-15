@@ -1,17 +1,62 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ededed;
+  /* Light Theme */
+  --background: #f2f8fc;
   --foreground: #171717;
-  --popup: #ffffff;
-  --border: #e5e7eb;
+
+  --card: #ffffff;
+  --card-foreground: #09090b;
+
+  --popover: #ffffff;
+  --popover-foreground: #09090b;
+
+  --primary: #18181b;
+  --primary-foreground: #fafafa;
+
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+
+  --muted: #f4f4f5;
+  --muted-foreground: #646466;
+
+  --accent: #f4f5f5;
+  --accent-foreground: #18181b;
+
+  /* This is for any button in my website */
+  --button: #4F46E5;
+  --button-foreground: #FFFFFF;
+
+  --border: #e4e4e7;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-popup: var(--popup);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-button: var(--button);
+  --color-button-foreground: var(--button-foreground);
+
   --color-border: var(--border);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

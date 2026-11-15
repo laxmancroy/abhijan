@@ -1,6 +1,6 @@
 const Features = () => {
     return (
-        <div className="container mx-auto px-4 py-12">
+        <div className="bg-card border-t border-border py-5">
             <h2 className="text-3xl font-bold text-center text-gray-900">Abhijan এ যা যা থাকছে</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
                 <div className="bg-white rounded-lg shadow-md p-6">

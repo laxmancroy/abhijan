@@ -16,7 +16,7 @@ const navMenu = [
 const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     return (
-        <header className="sticky top-0 z-50 h-14 w-full border-b border-border bg-popup text-foreground px-4 py-2 flex justify-between md:justify-around items-center">
+        <header className="sticky top-0 z-50 h-14 w-full border-b border-border bg-card text-card-foreground px-4 py-2 flex justify-between md:justify-around items-center">
             <Link href="/" className="block text-xl">Abhijan</Link>
 
             <div className="flex">
@@ -50,7 +50,7 @@ const Header = () => {
             {/* Mobile Navigation Menu Bar */}
             {
                 isMobileMenuOpen &&
-                <nav className="fixed right-0 top-14 bottom-0 z-40 flex w-1/2 flex-col overflow-y-auto border-l border-gray-200 bg-white shadow-lg md:hidden">
+                <nav className="fixed right-0 top-14 bottom-0 z-40 flex w-1/2 flex-col overflow-y-auto border-l border-gray-200 bg-card shadow-lg md:hidden">
                 {
                     navMenu.map((item) => (
                         <Link key={item.href} href={item.href} className="px-4 py-2 hover:text-blue-700 rounded">
