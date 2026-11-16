@@ -65,7 +65,7 @@
   --color-secondary-btn-fg: var(--secondary-btn-fg);
   --color-secondary-btn-bdr: var(--secondary-btn-bdr);
 
-  --color-border: var(--border);
+  --color-bdr: var(--border);
 
   /* Font is here */
   --font-righteous: var(--font-righteous-setup);
