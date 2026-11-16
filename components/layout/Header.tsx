@@ -16,33 +16,34 @@ const navMenu = [
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 h-14 w-full border-b border-border bg-card text-card-foreground px-4 py-2 flex justify-between md:justify-around items-center">
-      <Link href="/" className="block text-xl">
-        Abhijan
+    <header className="sticky top-0 z-50 h-16 px-4 sm:px-8 md:px-12 lg:px-16 border-b border-border bg-card/80 text-card-foreground backdrop-blur-md flex justify-between md:justify-around items-center">
+      <Link href="/" className="font-righteous block text-3xl text-primary-btn">
+        abhijan
       </Link>
 
-      <div className="flex">
+      <div className="flex items-center justify-between text-md">
+       
+       
         {/* Desktop Navigation Menu Bar */}
         <nav className="hidden md:flex mr-8">
           {navMenu.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="px-4 py-2 hover:text-blue-700 rounded"
+              className="px-4 py-2 hover:text-primary-btn rounded"
             >
               {item.name}
             </Link>
           ))}
         </nav>
-        <button className="">
-          <Link
-            href="/signin"
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-          >
-            Login
-          </Link>
-        </button>
-        {/* Responsive Navigation Button */}
+        <Link
+          href="/signin"
+          className="px-6 py-2 bg-primary-btn text-white rounded-lg border hover:bg-primary-btn-hv"
+        >
+          Sign In
+        </Link>
+
+        {/* Mobile Navigation Button */}
         <button
           className="md:hidden ml-8 hover:text-blue-700 hover:cursor-pointer"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

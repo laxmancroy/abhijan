@@ -3,6 +3,7 @@ import Footer from "@/components/layout/Footer";
 
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { Righteous } from "next/font/google";
 import "./globals.css";
 
 const PoppinsFont = Poppins({
@@ -12,6 +13,13 @@ const PoppinsFont = Poppins({
   display: "swap",
 });
 
+const RighteousFont = Righteous({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-righteous-setup",
+  display: "swap",
+})
+
 export const metadata: Metadata = {
   title: "Abhijan",
   description: "A education platform for diploma job preperation students.",
@@ -19,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${PoppinsFont.variable} antialiased`}>
+    <html lang="en" className={`${PoppinsFont.variable, RighteousFont.variable} antialiased`}>
       <body>
         <Header />
         {children}

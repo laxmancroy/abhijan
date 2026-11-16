@@ -24,8 +24,13 @@
   --accent-foreground: #18181b;
 
   /* This is for any button in my website */
-  --button: #4f46e5;
-  --button-foreground: #ffffff;
+  --primary-btn: #de00a5;
+  --primary-btn-fg: #ffffff;
+  --primary-btn-hv: #b80089;
+
+  --secondary-btn: #ffffff;
+  --secondary-btn-fg: #de00a5;
+  --secondary-btn-bdr: #de00a5;
 
   --border: #e4e4e7;
 }
@@ -52,10 +57,18 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
 
-  --color-button: var(--button);
-  --color-button-foreground: var(--button-foreground);
+  --color-primary-btn: var(--primary-btn);
+  --color-primary-btn-fg: var(--primary-btn-fg);
+  --color-primary-btn-hv: var(--primary-btn-hv);
+
+  --color-secondary-btn: var(--secondary-btn);
+  --color-secondary-btn-fg: var(--secondary-btn-fg);
+  --color-secondary-btn-bdr: var(--secondary-btn-bdr);
 
   --color-border: var(--border);
+
+  /* Font is here */
+  --font-righteous: var(--font-righteous-setup);
 }
 
 body {
