@@ -16,14 +16,12 @@ const navMenu = [
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 h-16 px-4 sm:px-8 md:px-12 lg:px-16 border-b border-border bg-card/80 text-card-foreground backdrop-blur-md flex justify-between md:justify-around items-center">
+    <header className="sticky top-0 z-30 h-16 px-4 sm:px-8 md:px-12 lg:px-16 border-b border-border bg-card/80 text-card-foreground backdrop-blur-md flex justify-between md:justify-around items-center">
       <Link href="/" className="font-righteous block text-3xl text-primary-btn">
         abhijan
       </Link>
 
       <div className="flex items-center justify-between text-md">
-       
-       
         {/* Desktop Navigation Menu Bar */}
         <nav className="hidden md:flex mr-8">
           {navMenu.map((item) => (
@@ -45,7 +43,7 @@ const Header = () => {
 
         {/* Mobile Navigation Button */}
         <button
-          className="md:hidden ml-8 hover:text-blue-700 hover:cursor-pointer"
+          className="md:hidden ml-8 z-60 hover:text-primary-btn hover:cursor-pointer"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (
@@ -54,19 +52,22 @@ const Header = () => {
             <MdOutlineMenu size={30} />
           )}
         </button>
+
         {/* Mobile Navigation Menu Bar */}
         {isMobileMenuOpen && (
-          <nav className="fixed right-0 top-14 bottom-0 z-40 flex w-1/2 flex-col overflow-y-auto border-l border-gray-200 bg-card shadow-lg md:hidden">
-            {navMenu.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="px-4 py-2 hover:text-blue-700 rounded"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
+          <div className="fixed inset-0 z-30 w-full h-dvh bg-black/50 backdrop-blur-xs md:hidden" onClick={() => setIsMobileMenuOpen(false)} >
+            <nav className="fixed top-0 right-0 h-dvh w-64 sm:w-1/2 flex w-1/2 flex-col overflow-y-auto border-l border-gray-200 bg-card shadow-lg pt-16"  onClick={(e) => e.stopPropagation()}>
+              {navMenu.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="px-8 py-3 hover:text-primary-btn"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
+          </div>
         )}
       </div>
     </header>

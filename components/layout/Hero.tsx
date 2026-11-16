@@ -31,8 +31,8 @@ const Hero = () => {
     <div className="container mx-auto flex flex-col md:grid md:grid-cols-2 gap-8 px-4 py-8 md:px-16 md:py-16">
       <div className="flex flex-col gap-4">
         <h2 className="text-4xl font-medium">
-          Bangladesh's #1 platform <br /> for Job, DUET, Academic and <br />{" "}
-          General preperation
+          Bangladesh's <b className="text-primary-btn">#1</b> platform for{" "}
+          <em>Job, DUET and Academic</em> preperation for Diploma students.
         </h2>
         <p className="text-muted-foreground text-sm font-light">
           Abhijan is one of Bangladesh's leading online preparation platforms —

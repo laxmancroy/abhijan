@@ -18,7 +18,7 @@ const RighteousFont = Righteous({
   subsets: ["latin"],
   variable: "--font-righteous-setup",
   display: "swap",
-})
+});
 
 export const metadata: Metadata = {
   title: "Abhijan",
@@ -27,7 +27,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${PoppinsFont.variable, RighteousFont.variable} antialiased`}>
+    <html
+      lang="en"
+      className={`${PoppinsFont.variable} ${RighteousFont.variable} antialiased`}
+    >
       <body>
         <Header />
         {children}
