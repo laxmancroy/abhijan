@@ -16,7 +16,7 @@ const navMenu = [
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
-    <header className="bg-card sticky top-0 z-30 h-16 px-6 border-b border-bdr backdrop-blur-md">
+    <header className="bg-card/90 sticky top-0 z-30 h-16 px-6 border-b border-bdr backdrop-blur-md">
       <div className="container h-full mx-auto flex justify-between md:justify-around items-center">
         <Link
           href="/"
@@ -25,7 +25,7 @@ const Header = () => {
           abhijan
         </Link>
 
-        <div className="flex items-center justify-between text-md">
+        <div className="flex items-center justify-between text-base">
           {/* Desktop Navigation Menu Bar */}
           <nav className="hidden md:flex">
             {navMenu.map((item) => (
@@ -38,6 +38,8 @@ const Header = () => {
               </Link>
             ))}
           </nav>
+
+          {/* Desktop Sign In Button */}
           <Link
             href="/signin"
             className="px-6 py-2 bg-primary-btn text-white rounded-lg border hover:bg-primary-btn-hv"
@@ -45,7 +47,7 @@ const Header = () => {
             Sign In
           </Link>
 
-          {/* Mobile Navigation Button */}
+          {/* Mobile Navigation Toggle Button */}
           <button
             className="md:hidden ml-4 z-60 hover:text-primary-btn hover:cursor-pointer"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -73,16 +75,18 @@ const Header = () => {
                 key={item.href}
                 href={item.href}
                 className="mx-8 pl-3 py-3 border-b border-bdr hover:text-primary-btn"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
             <Link
-            href="/signin"
-            className="bg-primary-btn text-white text-center py-3 mx-8 mt-6 rounded-lg border hover:bg-primary-btn-hv"
-          >
-            Sign In
-          </Link>
+              href="/signin"
+              className="bg-primary-btn text-white text-center py-3 mx-8 mt-6 rounded-lg border hover:bg-primary-btn-hv"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Sign In
+            </Link>
           </nav>
         </div>
       )}
