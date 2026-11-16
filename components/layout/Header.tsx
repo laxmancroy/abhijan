@@ -8,9 +8,9 @@ const navMenu = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
-  { name: "Services", href: "/services" },
+  { name: "FAQ", href: "/faq" },
   { name: "Blog", href: "/blog" },
-  { name: "Portfolio", href: "/portfolio" },
+  { name: "Help", href: "/help" },
 ];
 
 const Header = () => {
