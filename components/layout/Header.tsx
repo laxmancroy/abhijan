@@ -29,7 +29,7 @@ const Header = () => {
           {/* Desktop Sign In Button */}
           <Link
             href="/signin"
-            className="px-6 py-2 bg-primary text-primary-fg rounded-lg border hover:bg-primary-hv truncate"
+            className="px-6 py-2 bg-primary text-primary-fg rounded-lg hover:bg-primary-hv truncate"
           >
             Sign In
           </Link>

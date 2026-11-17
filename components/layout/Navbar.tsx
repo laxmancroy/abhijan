@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useState } from "react"
 
 const navMenu = [
   { name: "Home", href: "/" },
@@ -10,7 +9,7 @@ const navMenu = [
   { name: "Help", href: "/help" },
 ];
 
-const Navbar = ({isMobileMenuOpen, setIsMobileMenuOpen}: {}) => {
+const Navbar = ({isMobileMenuOpen, setIsMobileMenuOpen}: {isMobileMenuOpen: boolean; setIsMobileMenuOpen: (open: boolean) => void}) => {
   return (
     <>
     <nav className="hidden md:flex">
@@ -48,7 +47,7 @@ const Navbar = ({isMobileMenuOpen, setIsMobileMenuOpen}: {}) => {
             ))}
             <Link
               href="/signin"
-              className="bg-primary text-white text-center py-3 mx-8 mt-6 rounded-lg border hover:bg-primary-btn-hv"
+              className="bg-primary text-white text-center py-3 mx-8 mt-6 rounded-lg hover:bg-primary-btn-hv"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Sign In
