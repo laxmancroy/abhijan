@@ -29,11 +29,11 @@
 
 /* This is for Dark Theme */
 .dark {
-  --background: #d2d2d2;
+  --background: #09090b;
   --foreground: #f4f4f5;
 
-  --card: #131316;
-  --card-foreground: #09090b;
+  --card: #1c1c21;
+  --card-foreground: #f4f4f5;
 
   --popover: #ffffff;
   --popover-foreground: #09090b;
