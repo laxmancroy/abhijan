@@ -17,7 +17,7 @@ const ThemeToggle = () => {
   if (!mounted) return null;
 
   return (
-    <div className="inline-flex items-center border border-bdr rounded-full mr-4">
+    <div className="inline-flex items-center border border-secondary-bdr rounded-full mr-4">
       <button
         className={`box-content px-3 py-2 rounded-full cursor-pointer ${resolvedTheme === "light" ? "bg-secondary" : ""} `}
         onClick={() => isDark && setTheme("light")}

@@ -15,9 +15,12 @@
 
   --primary: #de00a5;
   --primary-foreground: #ffffff;
+  --primary-hocus: #b80089;
 
-  --secondary: #e4e4e7;
+  --secondary: #e2e5e9;
   --secondary-foreground: #18181b;
+  --secondary-hocus: #d3d7de;
+  --secondary-border: #d8dce2;
 
   --muted: #f4f4f5;
   --muted-foreground: #52525b;
@@ -43,9 +46,12 @@
 
   --primary: #de00a5;
   --primary-foreground: #ffffff;
+  --primary-hocus: #f514bc;
 
-  --secondary: #27272a;
-  --secondary-foreground: #18181b;
+  --secondary: #353b45;
+  --secondary-foreground: #f2f3f4;
+  --secondary-hocus: #424956;
+  --secondary-border: #3e4551;
 
   --muted: #1c1c20;
   --muted-foreground: #a1a1aa;
@@ -69,9 +75,12 @@
 
   --color-primary: var(--primary);
   --color-primary-fg: var(--primary-foreground);
+  --color-primary-hocus: var(--primary-hocus);
 
   --color-secondary: var(--secondary);
   --color-secondary-fg: var(--secondary-foreground);
+  --color-secondary-hocus: var(--secondary-hocus);
+  --color-secondary-bdr: var(--secondary-border);
 
   --color-muted: var(--muted);
   --color-muted-fg: var(--muted-foreground);
