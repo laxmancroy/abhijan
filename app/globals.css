@@ -1,6 +1,5 @@
 @import "tailwindcss";
-@custom-variant hocus (&:hover, &:focus);
-
+@custom-variant hocus (&:hover, &:focus-visible);
 
 /* This is for Light Theme */
 :root {
@@ -39,7 +38,6 @@
 
   --card: #262a31;
   --card-foreground: #f2f3f4;
-
 
   --popover: #ffffff;
   --popover-foreground: #09090b;

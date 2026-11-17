@@ -2,95 +2,52 @@
 
 import { useState } from "react";
 import { signIn } from "@/lib/auth-client";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
 
-export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+const SignInPage = async () => {
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
+  const [error, setError] = useState("");
 
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
+
+  const handleGoogleSignIn = async () => {
+    setLoading(true);
     setError("");
 
-    await signIn.email(
-      {
-        email,
-        password,
-        callbackURL: "/dashboard",
-      },
-      {
-        onRequest: () => {
-          setLoading(true);
+    try {
+      await signIn.social(
+        {
+          provider: "google",
+          callbackURL: "/dashboard",
         },
-        onSuccess: () => {
-          router.push("/dashboard");
-          router.refresh();
+        {
+          onError: (ctx) => {
+            setLoading(false);
+            setError(
+              ctx.error.message || "Something Went Wrong! Try Again Later.",
+            );
+          },
         },
-        onError: (ctx) => {
-          setError(ctx.error.message || "Wrong email or password!");
-          setLoading(false);
-        },
-      },
-    );
+      );
+    } catch {
+      setLoading(false);
+      setError("Network Error!");
+    }
   };
-
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 text-gray-600 p-4">
-      <form
-        onSubmit={handleLogin}
-        className="w-full max-w-md space-y-4 rounded-xl bg-white p-6 shadow-md border border-gray-200"
-      >
-        <h1 className="text-2xl font-bold text-center">Login</h1>
-
-        {error && (
-          <div className="rounded bg-red-100 p-3 text-sm text-red-600">
-            {error}
-          </div>
-        )}
-
-        <div>
-          <label className="block text-sm font-medium mb-1">Email</label>
-          <input
-            type="email"
-            placeholder="example@mail.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded border border-gray-200 p-2"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium mb-1">Password</label>
-          <input
-            type="password"
-            placeholder="********"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded border border-gray-200 p-2 focus:border-gray-400"
-            required
-          />
-        </div>
-
+    <div className="flex items-center justify-center h-screen w-full">
+      <div className="bg-card max-w-md w-full px-6 py-6 rounded-lg border border-bdr">
+        <h2 className="text-2xl font-bold text-center pb-6">Sign In</h2>
+        {error && <p className="text-red-600 py-3 px-2">{error}</p>}
         <button
-          type="submit"
+          type="button"
+          onClick={handleGoogleSignIn}
           disabled={loading}
-          className="w-full rounded bg-blue-600 py-2 font-semibold text-white hover:bg-blue-700 disabled:opacity-50"
+          className="bg-primary text-primary-fg w-full py-2 rounded-lg hocus:bg-primary-hocus hover:cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
         >
-          {loading ? "Login process..." : "Login"}
+          {loading ? "Redirecting to Google..." : "Continue with Google"}
         </button>
-
-        <p className="text-center text-sm text-gray-600">
-          Don&apos;t have an account?{" "}
-          <Link href="/signup" className="text-blue-600 font-medium underline">
-            Register
-          </Link>
-        </p>
-      </form>
+      </div>
     </div>
   );
-}
+};
+
+export default SignInPage;

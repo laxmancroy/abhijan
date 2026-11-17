@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
@@ -6,14 +6,14 @@ import { useState, useEffect } from "react";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 const ThemeToggle = () => {
-    const { resolvedTheme, setTheme } = useTheme();
-    const [mounted, setMounted] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-    const isDark = resolvedTheme === "dark";
+  const isDark = resolvedTheme === "dark";
 
-    useEffect(() => {
-        setMounted(true);
-    }, [])
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   if (!mounted) return null;
 
   return (

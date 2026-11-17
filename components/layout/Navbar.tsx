@@ -9,21 +9,26 @@ const navMenu = [
   { name: "Help", href: "/help" },
 ];
 
-const Navbar = ({isMobileMenuOpen, setIsMobileMenuOpen}: {isMobileMenuOpen: boolean; setIsMobileMenuOpen: (open: boolean) => void}) => {
+const Navbar = ({
+  isMobileMenuOpen,
+  setIsMobileMenuOpen,
+}: {
+  isMobileMenuOpen: boolean;
+  setIsMobileMenuOpen: (open: boolean) => void;
+}) => {
   return (
     <>
-    <nav className="hidden md:flex">
-      {navMenu.map((item) => (
-        <Link
-          key={item.href}
-          href={item.href}
-          className="px-3 lg:px-6 py-2 hocus:text-primary rounded"
-        >
-          {item.name}
-        </Link>
-      ))}
-    </nav>
-
+      <nav className="hidden md:flex">
+        {navMenu.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className="px-3 lg:px-6 py-2 hocus:text-primary rounded"
+          >
+            {item.name}
+          </Link>
+        ))}
+      </nav>
 
       {/* Mobile Navigation Menu Bar */}
       {isMobileMenuOpen && (
@@ -55,11 +60,8 @@ const Navbar = ({isMobileMenuOpen, setIsMobileMenuOpen}: {isMobileMenuOpen: bool
           </nav>
         </div>
       )}
-
     </>
-    
   );
 };
 
 export default Navbar;
-

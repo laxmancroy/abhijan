@@ -2,28 +2,40 @@
 "use client";
 
 import { signOut } from "@/lib/auth-client";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function LogoutButton() {
+const SignOutButton = () =>  {
   const router = useRouter();
+  const [isSignOut, setIsSignOut] = useState(false);
+  const [error, setError] = useState(false);
 
-  const handleLogout = async () => {
+  const handleSignOut = async () => {
+    setIsSignOut(true);
+    setError(false);
+
     await signOut({
       fetchOptions: {
         onSuccess: () => {
-          router.push("/login"); // লগআউট শেষে লগইন পেজে পাঠিয়ে দেবে
+          router.push("/signin");
           router.refresh();
         },
+        onError: (ctx) => {
+          setIsSignOut(false);
+          setError(ctx.error.message || "Sign Out Failed!");
+        }
       },
     });
   };
 
   return (
-    <button
-      onClick={handleLogout}
-      className="mt-4 rounded bg-red-600 px-4 py-2 text-white hover:bg-red-700"
+    <div
+      onClick={handleSignOut}
     >
-      Logout (লগআউট)
-    </button>
+      { error === false ? "Sign Out" : error}
+    </div>
   );
 }
+
+
+export default SignOutButton;

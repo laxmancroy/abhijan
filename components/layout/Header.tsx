@@ -12,17 +12,17 @@ const Header = () => {
   return (
     <header className="bg-card/80 sticky top-0 z-30 h-16 px-6 border-b border-bdr backdrop-blur-md">
       <div className="container h-full mx-auto flex justify-between md:justify-around items-center">
-        <Link
-          href="/"
-          className="font-righteous block text-primary text-3xl"
-        >
+        <Link href="/" className="font-righteous block text-primary text-3xl">
           abhijan
         </Link>
 
         <div className="flex items-center justify-between">
           {/* Desktop Navigation Menu Bar */}
 
-          <Navbar isMobileMenuOpen={ isMobileMenuOpen } setIsMobileMenuOpen={ setIsMobileMenuOpen } />
+          <Navbar
+            isMobileMenuOpen={isMobileMenuOpen}
+            setIsMobileMenuOpen={setIsMobileMenuOpen}
+          />
 
           <ThemeToggle />
 
