@@ -7,7 +7,6 @@ const SignInPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-
   const handleGoogleSignIn = async () => {
     setLoading(true);
     setError("");
