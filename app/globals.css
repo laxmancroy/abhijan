@@ -2,7 +2,7 @@
 
 /* This is for Light Theme */
 :root {
-  --background: #fafafa;
+  --background: #f2f3f4;
   --foreground: #18181b;
 
   --card: #ffffff;
@@ -29,7 +29,7 @@
 
 /* This is for Dark Theme */
 .dark {
-  --background: #09090b;
+  --background: #d2d2d2;
   --foreground: #f4f4f5;
 
   --card: #131316;
@@ -83,7 +83,7 @@
 }
 
 body {
-  background: var(--bg);
-  color: var(--fg);
+  background: var(--background);
+  color: var(--foreground);
   font-family: var(--font-poppins);
 }
