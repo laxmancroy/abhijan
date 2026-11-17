@@ -29,11 +29,12 @@
 
 /* This is for Dark Theme */
 .dark {
-  --background: #09090b;
-  --foreground: #f4f4f5;
+  --background: #1c1f24;
+  --foreground: #f2f3f4;
 
-  --card: #1c1c21;
-  --card-foreground: #f4f4f5;
+  --card: #262a31;
+  --card-foreground: #f2f3f4;
+
 
   --popover: #ffffff;
   --popover-foreground: #09090b;
@@ -50,7 +51,7 @@
   --accent: #a78bfa;
   --accent-foreground: #18181b;
 
-  --border: #27272a;
+  --border: #383e48;
   --ring: #818cf8;
 }
 
