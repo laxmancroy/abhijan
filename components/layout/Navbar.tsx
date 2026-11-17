@@ -37,7 +37,7 @@ const Navbar = ({
           onClick={() => setIsMobileMenuOpen(false)}
         >
           <nav
-            className="fixed top-0 right-0 h-dvh w-1/2 flex flex-col overflow-y-auto border-l border-bdr bg-card shadow-lg pt-14"
+            className="fixed top-0 right-0 h-dvh w-1/2 flex flex-col overflow-y-auto border-l border-bdr bg-card/80 backdrop-blur-md pt-14"
             onClick={(e) => e.stopPropagation()}
           >
             {navMenu.map((item) => (
@@ -52,7 +52,7 @@ const Navbar = ({
             ))}
             <Link
               href="/signin"
-              className="bg-primary text-primary-fg text-center py-3 mx-8 mt-6 rounded-lg hover:bg-primary-btn-hv"
+              className="bg-primary text-primary-fg text-center py-3 mx-8 mt-6 rounded-lg hocus:bg-primary-hocus"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Sign In

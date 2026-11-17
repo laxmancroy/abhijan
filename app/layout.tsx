@@ -33,7 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${PoppinsFont.variable} ${RighteousFont.variable} antialiased`}
       suppressHydrationWarning
     >
-      <body>
+      <body className="flex min-h-screen flex-col">
         <ThemeProvider>
           <Header />
           {children}
