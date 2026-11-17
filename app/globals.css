@@ -1,69 +1,80 @@
 @import "tailwindcss";
 
+/* This is for Light Theme */
 :root {
-  /* Light Theme */
-  --background: #f2f8fc;
-  --foreground: #171717;
+  --background: #fafafa;
+  --foreground: #18181b;
 
   --card: #ffffff;
+  --card-foreground: #18181b;
+
+  --popover: #ffffff;
+  --popover-foreground: #09090b;
+
+  --primary: #4f46e5;
+  --primary-foreground: #ffffff;
+
+  --secondary: #e4e4e7;
+  --secondary-foreground: #18181b;
+
+  --muted: #f4f4f5;
+  --muted-foreground: #52525b;
+
+  --accent: #7c3aed;
+  --accent-foreground: #18181b;
+
+  --border: #e4e4e7;
+  --ring: #4f46e5;
+}
+
+/* This is for Dark Theme */
+.dark {
+  --background: #09090b;
+  --foreground: #f4f4f5;
+
+  --card: #131316;
   --card-foreground: #09090b;
 
   --popover: #ffffff;
   --popover-foreground: #09090b;
 
-  --primary: #18181b;
-  --primary-foreground: #fafafa;
+  --primary: #818cf8;
+  --primary-foreground: #ffffff;
 
-  --secondary: #f4f4f5;
+  --secondary: #27272a;
   --secondary-foreground: #18181b;
 
-  --muted: #f4f4f5;
-  --muted-foreground: #646466;
+  --muted: #1c1c20;
+  --muted-foreground: #a1a1aa;
 
-  --accent: #f4f5f5;
+  --accent: #a78bfa;
   --accent-foreground: #18181b;
 
-  /* This is for any button in my website */
-  --primary-btn: #de00a5;
-  --primary-btn-fg: #ffffff;
-  --primary-btn-hv: #b80089;
-
-  --secondary-btn: #ffffff;
-  --secondary-btn-fg: #de00a5;
-  --secondary-btn-bdr: #de00a5;
-
-  --border: #e4e4e7;
+  --border: #27272a;
+  --ring: #818cf8;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-bg: var(--background);
+  --color-fg: var(--foreground);
 
   --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
+  --color-card-fg: var(--card-foreground);
 
   --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
+  --color-popover-fg: var(--popover-foreground);
 
   --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-fg: var(--primary-foreground);
 
   --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-fg: var(--secondary-foreground);
 
   --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
+  --color-muted-fg: var(--muted-foreground);
 
   --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-
-  --color-primary-btn: var(--primary-btn);
-  --color-primary-btn-fg: var(--primary-btn-fg);
-  --color-primary-btn-hv: var(--primary-btn-hv);
-
-  --color-secondary-btn: var(--secondary-btn);
-  --color-secondary-btn-fg: var(--secondary-btn-fg);
-  --color-secondary-btn-bdr: var(--secondary-btn-bdr);
+  --color-accent-fg: var(--accent-foreground);
 
   --color-bdr: var(--border);
 
@@ -72,7 +83,7 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg);
+  color: var(--fg);
   font-family: var(--font-poppins);
 }

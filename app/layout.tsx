@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import ThemeProvider from "@/components/theme-provider";
 
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
@@ -30,11 +31,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${PoppinsFont.variable} ${RighteousFont.variable} antialiased`}
+      suppressHydrationWarning
     >
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <ThemeProvider>
+          <Header />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

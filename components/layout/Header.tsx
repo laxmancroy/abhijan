@@ -2,47 +2,34 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import ThemeToggle from "@/components/layout/ThemeToggle";
 import { MdOutlineMenu, MdOutlineClose } from "react-icons/md";
-
-const navMenu = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
-  { name: "FAQ", href: "/faq" },
-  { name: "Blog", href: "/blog" },
-  { name: "Help", href: "/help" },
-];
+import Navbar from "@/components/layout/Navbar";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
-    <header className="bg-card/90 sticky top-0 z-30 h-16 px-6 border-b border-bdr backdrop-blur-md">
+    <header className="bg-card/80 sticky top-0 z-30 h-16 px-6 border-b border-bdr backdrop-blur-md">
       <div className="container h-full mx-auto flex justify-between md:justify-around items-center">
         <Link
           href="/"
-          className="font-righteous block text-3xl text-primary-btn"
+          className="font-righteous block text-3xl text-primary"
         >
           abhijan
         </Link>
 
-        <div className="flex items-center justify-between text-base">
+        <div className="flex items-center justify-between">
           {/* Desktop Navigation Menu Bar */}
-          <nav className="hidden md:flex">
-            {navMenu.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="px-3 lg:px-6 py-2 hover:text-primary-btn rounded"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
+
+          <Navbar isMobileMenuOpen={ isMobileMenuOpen } setIsMobileMenuOpen={ setIsMobileMenuOpen } />
+
+          <ThemeToggle />
 
           {/* Desktop Sign In Button */}
           <Link
             href="/signin"
-            className="px-6 py-2 bg-primary-btn text-white rounded-lg border hover:bg-primary-btn-hv"
+            className="px-6 py-2 bg-primary text-primary-fg rounded-lg border hover:bg-primary-hv truncate"
           >
             Sign In
           </Link>
@@ -60,36 +47,6 @@ const Header = () => {
           </button>
         </div>
       </div>
-      {/* Mobile Navigation Menu Bar */}
-      {isMobileMenuOpen && (
-        <div
-          className="fixed inset-0 z-30 w-full h-dvh bg-black/50 backdrop-blur-xs md:hidden"
-          onClick={() => setIsMobileMenuOpen(false)}
-        >
-          <nav
-            className="fixed top-0 right-0 h-dvh w-1/2 flex flex-col overflow-y-auto border-l border-gray-200 bg-card shadow-lg pt-14"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {navMenu.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="mx-8 pl-3 py-3 border-b border-bdr hover:text-primary-btn"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <Link
-              href="/signin"
-              className="bg-primary-btn text-white text-center py-3 mx-8 mt-6 rounded-lg border hover:bg-primary-btn-hv"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Sign In
-            </Link>
-          </nav>
-        </div>
-      )}
     </header>
   );
 };
