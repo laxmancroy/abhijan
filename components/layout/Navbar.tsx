@@ -17,7 +17,7 @@ const Navbar = ({isMobileMenuOpen, setIsMobileMenuOpen}: {isMobileMenuOpen: bool
         <Link
           key={item.href}
           href={item.href}
-          className="px-3 lg:px-6 py-2 hover:text-primary-btn rounded"
+          className="px-3 lg:px-6 py-2 hocus:text-primary rounded"
         >
           {item.name}
         </Link>
@@ -32,14 +32,14 @@ const Navbar = ({isMobileMenuOpen, setIsMobileMenuOpen}: {isMobileMenuOpen: bool
           onClick={() => setIsMobileMenuOpen(false)}
         >
           <nav
-            className="fixed top-0 right-0 h-dvh w-1/2 flex flex-col overflow-y-auto border-l border-gray-200 bg-card shadow-lg pt-14"
+            className="fixed top-0 right-0 h-dvh w-1/2 flex flex-col overflow-y-auto border-l border-bdr bg-card shadow-lg pt-14"
             onClick={(e) => e.stopPropagation()}
           >
             {navMenu.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="mx-8 pl-3 py-3 border-b border-bdr hover:text-primary-btn"
+                className="mx-8 pl-3 py-3 border-b border-bdr hocus:text-primary"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}
@@ -47,7 +47,7 @@ const Navbar = ({isMobileMenuOpen, setIsMobileMenuOpen}: {isMobileMenuOpen: bool
             ))}
             <Link
               href="/signin"
-              className="bg-primary text-white text-center py-3 mx-8 mt-6 rounded-lg hover:bg-primary-btn-hv"
+              className="bg-primary text-primary-fg text-center py-3 mx-8 mt-6 rounded-lg hover:bg-primary-btn-hv"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Sign In

@@ -37,7 +37,7 @@ const Footer = () => {
           <Link
             key={btn.name}
             href={btn.href}
-            className="*:border *:border-bdr *:mx-3 *:rounded-full *:size-6 *:box-content *:p-2 *:text-primary-btn *:hover:border-primary-btn"
+            className="*:border *:border-bdr *:mx-3 *:rounded-full *:size-6 *:box-content *:p-2 *:hocus:border-fg"
           >
             {btn.icon}
           </Link>

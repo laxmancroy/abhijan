@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@custom-variant hocus (&:hover, &:focus);
+
 
 /* This is for Light Theme */
 :root {

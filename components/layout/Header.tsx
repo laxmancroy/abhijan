@@ -14,7 +14,7 @@ const Header = () => {
       <div className="container h-full mx-auto flex justify-between md:justify-around items-center">
         <Link
           href="/"
-          className="font-righteous block text-3xl text-primary"
+          className="font-righteous block text-primary text-3xl"
         >
           abhijan
         </Link>
@@ -29,7 +29,7 @@ const Header = () => {
           {/* Desktop Sign In Button */}
           <Link
             href="/signin"
-            className="px-6 py-2 bg-primary text-primary-fg rounded-lg hover:bg-primary-hv truncate"
+            className="px-6 py-2 bg-primary text-primary-fg rounded-lg hocus:bg-primary-hocus truncate"
           >
             Sign In
           </Link>
