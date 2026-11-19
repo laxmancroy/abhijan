@@ -32,16 +32,16 @@ const Faq = () => {
   const [openQuestion, setOpenQuestion] = useState<number | null>(null);
 
   return (
-    <div className="b">
-      <div className="container mx-auto px-4 py-8 md:p-16">
-        <h3 className="text-center text-lg md:text-3xl font-bold">
+    <div className="container mx-auto">
+      <div className="bg-card sm:rounded-xl px-8 py-6 sm:mx-8 mb-4">
+        <h3 className="text-center text-xl font-bold">
           Frequently Asked Questions
         </h3>
         <div>
           {questions.map((q, index) => (
             <div
               key={q.question}
-              className="border-b border-border py-4 hover:cursor-pointer"
+              className="border-b border-bdr py-4 hover:cursor-pointer"
             >
               <h4
                 className="flex items-center justify-between"
@@ -61,7 +61,7 @@ const Faq = () => {
           ))}
         </div>
       </div>
-    </div>
+      </div>
   );
 };
 
