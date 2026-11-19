@@ -1,5 +1,7 @@
+import Faq from "@/components/ui/Faq";
+
 const FaqPage = () => {
-  return <div>Faq Page</div>;
-};
+  return <Faq />
+}
 
 export default FaqPage;

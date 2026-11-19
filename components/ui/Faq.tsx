@@ -33,8 +33,8 @@ const Faq = () => {
 
   return (
     <div className="container mx-auto">
-      <div className="bg-card sm:rounded-xl px-8 py-6 sm:mx-8 mb-4">
-        <h3 className="text-center text-xl font-bold">
+      <div className="bg-card sm:rounded-xl px-8 py-6 sm:mx-8 my-4">
+        <h3 className="text-center text-xl font-bold pb-2">
           Frequently Asked Questions
         </h3>
         <div>
@@ -44,7 +44,7 @@ const Faq = () => {
               className="border-b border-bdr py-4 hover:cursor-pointer"
             >
               <h4
-                className="flex items-center justify-between"
+                className="flex items-center justify-between text-sm"
                 onClick={() =>
                   setOpenQuestion(openQuestion === index ? null : index)
                 }
