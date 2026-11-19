@@ -37,7 +37,7 @@ const Navbar = ({
           onClick={() => setIsMobileMenuOpen(false)}
         >
           <nav
-            className="fixed top-0 right-0 h-dvh w-1/2 flex flex-col overflow-y-auto border-l border-bdr bg-card/80 backdrop-blur-md pt-14"
+            className="fixed top-0 right-0 h-dvh w-1/2 flex flex-col overflow-y-auto border-l border-bdr bg-card/90 backdrop-blur-md pt-14"
             onClick={(e) => e.stopPropagation()}
           >
             {navMenu.map((item) => (
