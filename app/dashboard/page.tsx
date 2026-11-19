@@ -20,7 +20,7 @@ const DashboardPage = async () => {
       <div className="w-full max-w-md rounded-xl border p-6 shadow-sm text-center">
         <h1 className="text-2xl font-bold">স্বাগতম, {session.user.name}!</h1>
         <p className="mt-2 text-gray-600">আপনার ইমেইল: {session.user.email}</p>
-          <SignOutButton />
+        <SignOutButton />
       </div>
     </div>
   );

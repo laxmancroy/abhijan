@@ -34,11 +34,9 @@ const SignOutButton = () => {
   };
 
   return (
-    <button 
-    type="button"
-    onClick={handleSignOut}
-    disabled={isSignOut}
-    >{isSignOut ? "Signing Out..." : "Sign Out"}</button>
+    <button type="button" onClick={handleSignOut} disabled={isSignOut}>
+      {isSignOut ? "Signing Out..." : "Sign Out"}
+    </button>
   );
 };
 
