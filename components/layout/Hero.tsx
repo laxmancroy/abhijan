@@ -12,33 +12,43 @@ const Hero = () => {
   const [startX, setStartX] = useState(0);
 
   const prevSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide <= 1 ? slideList.length : prevSlide - 1));
-  }
+    setCurrentSlide((prevSlide) =>
+      prevSlide <= 1 ? slideList.length : prevSlide - 1,
+    );
+  };
 
   const nextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide < slideList.length ? prevSlide + 1 : 1))
-  }
+    setCurrentSlide((prevSlide) =>
+      prevSlide < slideList.length ? prevSlide + 1 : 1,
+    );
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prevSlide) => (slideList.length > prevSlide ? prevSlide + 1 : 1));
+      setCurrentSlide((prevSlide) =>
+        slideList.length > prevSlide ? prevSlide + 1 : 1,
+      );
     }, 4000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [currentSlide]);
 
   const handleTouchEnd = (e: React.TouchEvent) => {
     const endX = e.changedTouches[0].clientX;
 
     if (endX - startX > 50) prevSlide();
     if (startX - endX > 50) nextSlide();
-  }
+  };
 
   return (
-    <div className="relative top-0 left-0 overflow-hidden">
+    <div
+      className="relative top-0 left-0 overflow-hidden touch-pan-y"
+      onTouchStart={(e) => setStartX(e.touches[0].clientX)}
+      onTouchEnd={handleTouchEnd}
+    >
       <div
         className="flex transition-transform duration-500 ease-in-out"
-        style={{ transform: `translateX(-${(currentSlide - 1) * 100}%` }}
+        style={{ transform: `translateX(-${(currentSlide - 1) * 100}%)` }}
       >
         {slideList.map((slide) => (
           <Image
