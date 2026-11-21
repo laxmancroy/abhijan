@@ -10,7 +10,7 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-card/80 sticky top-0 z-30 h-16 px-6 border-b border-bdr backdrop-blur-md">
+    <header className="sticky top-0 z-30 h-16 px-6 before:content-[''] before:absolute before:inset-0 before:-z-10 before:bg-card/80 before:backdrop-blur-md before:border-b before:border-bdr">
       <div className="container h-full mx-auto flex justify-between md:justify-around items-center">
         <Link href="/" className="font-righteous block text-primary text-3xl">
           abhijan
