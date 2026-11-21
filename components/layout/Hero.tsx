@@ -43,7 +43,7 @@ const Hero = () => {
     }, 4000);
 
     return () => clearTimeout(timer);
-  }, [currentSlide, step]);
+  }, [currentSlide, step, moveX]);
 
   const handleTouchMove = (e: React.TouchEvent) => {
     const diff = e.touches[0].clientX - startX;
@@ -55,7 +55,7 @@ const Hero = () => {
       return setMoveX(0);
     setMoveX(diff);
   };
-  const handleTouchEnd = (e: React.TouchEvent) => {
+  const handleTouchEnd = () => {
     if (moveX > 50) prevSlide();
     if (moveX < -50) nextSlide();
     setMoveX(0);
@@ -65,6 +65,7 @@ const Hero = () => {
     <div
       className="relative top-0 left-0 overflow-hidden touch-pan-y"
       onTouchStart={(e) => setStartX(e.touches[0].clientX)}
+      onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
       <div
