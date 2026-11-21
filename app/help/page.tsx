@@ -1,3 +1,5 @@
+import QuestionForm from "@/components/questions/QuestionForm";
+
 const HelpPage = () => {
   return (
     <div className="container mx-auto">
@@ -9,6 +11,7 @@ const HelpPage = () => {
           provident repellendus quia harum amet accusantium optio eveniet
           corrupti enim deleniti! Magnam, vitae?
         </p>
+        <QuestionForm />
       </div>
     </div>
   );
