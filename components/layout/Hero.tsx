@@ -69,7 +69,7 @@ const Hero = () => {
       onTouchEnd={handleTouchEnd}
     >
       <div
-        className={`flex ${moveX === 0 ? "transition-transform duration-500 ease-in-out" : ""} `}
+        className={`flex will-change-transform ${moveX === 0 ? "transition-transform duration-300 ease-out" : "transition-none"} `}
         style={{
           transform: `translateX(calc(-${(currentSlide - 1) * 100}% + ${moveX}px))`,
         }}

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import ThemeToggle from "@/components/layout/ThemeToggle";
-import { MdOutlineMenu, MdOutlineClose } from "react-icons/md";
+import { MdOutlineMenu } from "react-icons/md";
 import Navbar from "@/components/layout/Navbar";
 
 const Header = () => {
@@ -36,14 +36,10 @@ const Header = () => {
 
           {/* Mobile Navigation Toggle Button */}
           <button
-            className="md:hidden ml-4 z-60 hover:text-primary-btn hover:cursor-pointer"
+            className="md:hidden ml-4 hover:text-primary-btn hover:cursor-pointer"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? (
-              <MdOutlineClose size={30} />
-            ) : (
-              <MdOutlineMenu size={30} />
-            )}
+            <MdOutlineMenu size={30} />
           </button>
         </div>
       </div>

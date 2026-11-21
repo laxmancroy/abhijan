@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MdOutlineClose } from "react-icons/md";
 
 const navMenu = [
   { name: "Home", href: "/" },
@@ -31,15 +32,19 @@ const Navbar = ({
       </nav>
 
       {/* Mobile Navigation Menu Bar */}
-      {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 z-30 w-full h-dvh bg-black/50 backdrop-blur-xs md:hidden"
+          className={`fixed inset-0 w-full h-dvh overflow-hidden bg-black/50 backdrop-blur-xs md:hidden transform transition-transform duration-300 ease-in-out z-30 ${isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
           onClick={() => setIsMobileMenuOpen(false)}
         >
+          
           <nav
-            className="fixed top-0 right-0 h-dvh w-1/2 flex flex-col overflow-y-auto border-l border-bdr bg-card/90 backdrop-blur-md pt-14"
+            className={`fixed top-0 right-0 h-full w-1/2 flex flex-col overflow-y-auto border-l border-bdr bg-card/90 backdrop-blur-md pt-4 transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
             onClick={(e) => e.stopPropagation()}
           >
+            <button className="self-end mr-6 cursor-pointer" onClick={() => setIsMobileMenuOpen(false)}>
+                <MdOutlineClose size={30} />
+            </button>
+            
             {navMenu.map((item) => (
               <Link
                 key={item.href}
@@ -59,7 +64,6 @@ const Navbar = ({
             </Link>
           </nav>
         </div>
-      )}
     </>
   );
 };
