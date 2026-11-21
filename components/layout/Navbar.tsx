@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { MdOutlineClose } from "react-icons/md";
 
@@ -32,38 +34,42 @@ const Navbar = ({
       </nav>
 
       {/* Mobile Navigation Menu Bar */}
-        <div
-          className={`fixed inset-0 w-full h-dvh overflow-hidden bg-black/50 backdrop-blur-xs md:hidden transform transition-transform duration-300 ease-in-out z-30 ${isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
-          onClick={() => setIsMobileMenuOpen(false)}
+      <div
+        className={`fixed inset-0 w-full h-dvh overflow-hidden bg-black/50 backdrop-blur-xs md:hidden transition-[opacity,visibility] duration-300 ease-in-out z-30 ${isMobileMenuOpen ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"}`}
+        onClick={() => setIsMobileMenuOpen(false)}
+      >
+        <nav
+          className={`absolute top-0 right-0 h-dvh w-3/5 max-w-xs flex flex-col overflow-y-auto border-l border-bdr bg-card/90 pt-4 z-40 transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
+          onClick={(e) => e.stopPropagation()}
         >
-          
-          <nav
-            className={`fixed top-0 right-0 h-full w-1/2 flex flex-col overflow-y-auto border-l border-bdr bg-card/90 backdrop-blur-md pt-4 transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
-            onClick={(e) => e.stopPropagation()}
+          <button
+            type="button"
+            aria-label="Close Menu"
+            className="self-end mr-6 cursor-pointer"
+            onClick={() => setIsMobileMenuOpen(false)}
           >
-            <button className="self-end mr-6 cursor-pointer" onClick={() => setIsMobileMenuOpen(false)}>
-                <MdOutlineClose size={30} />
-            </button>
-            
-            {navMenu.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="mx-8 pl-3 py-3 border-b border-bdr hocus:text-primary"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
+            <MdOutlineClose size={30} />
+          </button>
+
+          {navMenu.map((item) => (
             <Link
-              href="/signin"
-              className="bg-primary text-primary-fg text-center py-3 mx-8 mt-6 rounded-lg hocus:bg-primary-hocus"
+              key={item.href}
+              href={item.href}
+              className="mx-8 pl-3 py-3 border-b border-bdr hocus:text-primary"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Sign In
+              {item.name}
             </Link>
-          </nav>
-        </div>
+          ))}
+          <Link
+            href="/signin"
+            className="bg-primary text-primary-fg text-center py-3 mx-8 mt-6 rounded-lg hocus:bg-primary-hocus"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Sign In
+          </Link>
+        </nav>
+      </div>
     </>
   );
 };
