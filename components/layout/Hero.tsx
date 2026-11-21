@@ -9,35 +9,53 @@ const slideList = [1, 2, 3];
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
+  const [step, setStep] = useState(1);
   const [startX, setStartX] = useState(0);
+  const [moveX, setMoveX] = useState(0);
 
   const prevSlide = () => {
+    if (currentSlide <= 1) return;
     setCurrentSlide((prevSlide) =>
       prevSlide <= 1 ? slideList.length : prevSlide - 1,
     );
   };
 
   const nextSlide = () => {
+    if (currentSlide === slideList.length) return;
     setCurrentSlide((prevSlide) =>
       prevSlide < slideList.length ? prevSlide + 1 : 1,
     );
   };
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prevSlide) =>
-        slideList.length > prevSlide ? prevSlide + 1 : 1,
-      );
+    if (slideList.length <= 1)  return;
+
+    const timer = setTimeout(() => {
+      if (currentSlide === slideList.length) {
+        setStep(-1);
+        setCurrentSlide(currentSlide - 1);
+      } else if (currentSlide === 1) {
+        setStep(1)
+        setCurrentSlide(currentSlide + 1)
+      } else {
+        setCurrentSlide(currentSlide + step);
+      }
     }, 4000);
 
-    return () => clearInterval(timer);
-  }, [currentSlide]);
+    return () => clearTimeout(timer);
+  }, [currentSlide, step]);
 
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    const diff = e.touches[0].clientX - startX;
+
+    if ((currentSlide === 1 && diff > 0) || (currentSlide === slideList.length && diff < 0)) return setMoveX(0);
+    setMoveX(diff);
+  }
   const handleTouchEnd = (e: React.TouchEvent) => {
-    const endX = e.changedTouches[0].clientX;
-
-    if (endX - startX > 50) prevSlide();
-    if (startX - endX > 50) nextSlide();
+    if (moveX > 50) prevSlide();
+    if (moveX < -50) nextSlide();
+    setMoveX(0);
   };
 
   return (
@@ -56,6 +74,7 @@ const Hero = () => {
             src={`/Hero/banner${slide}.png`}
             width={1600}
             height={493}
+            loading="eager"
             alt="Hero Banner"
             className="w-full h-auto shrink-0"
           />
