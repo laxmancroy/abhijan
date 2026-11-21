@@ -28,15 +28,15 @@ const Hero = () => {
   };
 
   useEffect(() => {
-    if (slideList.length <= 1)  return;
+    if (slideList.length <= 1) return;
 
     const timer = setTimeout(() => {
       if (currentSlide === slideList.length) {
         setStep(-1);
         setCurrentSlide(currentSlide - 1);
       } else if (currentSlide === 1) {
-        setStep(1)
-        setCurrentSlide(currentSlide + 1)
+        setStep(1);
+        setCurrentSlide(currentSlide + 1);
       } else {
         setCurrentSlide(currentSlide + step);
       }
@@ -45,13 +45,16 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, [currentSlide, step]);
 
-
   const handleTouchMove = (e: React.TouchEvent) => {
     const diff = e.touches[0].clientX - startX;
 
-    if ((currentSlide === 1 && diff > 0) || (currentSlide === slideList.length && diff < 0)) return setMoveX(0);
+    if (
+      (currentSlide === 1 && diff > 0) ||
+      (currentSlide === slideList.length && diff < 0)
+    )
+      return setMoveX(0);
     setMoveX(diff);
-  }
+  };
   const handleTouchEnd = (e: React.TouchEvent) => {
     if (moveX > 50) prevSlide();
     if (moveX < -50) nextSlide();
@@ -65,8 +68,10 @@ const Hero = () => {
       onTouchEnd={handleTouchEnd}
     >
       <div
-        className="flex transition-transform duration-500 ease-in-out"
-        style={{ transform: `translateX(-${(currentSlide - 1) * 100}%)` }}
+        className={`flex ${moveX === 0 ? "transition-transform duration-500 ease-in-out" : ""} `}
+        style={{
+          transform: `translateX(calc(-${(currentSlide - 1) * 100}% + ${moveX}px))`,
+        }}
       >
         {slideList.map((slide) => (
           <Image
