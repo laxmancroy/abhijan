@@ -78,8 +78,8 @@ const Hero = () => {
           <Image
             key={slide}
             src={`/Hero/banner${slide}.png`}
-            width={1600}
-            height={493}
+            width={1920}
+            height={600}
             loading="eager"
             alt="Hero Banner"
             className="w-full h-auto shrink-0"
